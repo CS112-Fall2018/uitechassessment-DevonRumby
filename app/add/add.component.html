@@ -5,23 +5,49 @@
     <meta charset = "UTF-8" />
   </head>
   <body>
-    <h1>Form Demo</h1>
-    <form>
+    <h1>Add To Cart</h1>
       <fieldset>
         <legend>Add An Item</legend>
         <p>
-          <label>Item</label>
-          <input type = "text"
-                 id = "myText"
-                 value = "" />
+          <label>Item:
+          <input type="text" 
+          [formControl]="name">
+            </label>
+          </p>
+          <p>
+          <label>Description:
+            <input type="text"
+            [formControl]="description">
+          </label>
         </p>
         <p>
-          <label>Price</label>
-          <input type = "text"
-                  id = "myPwd"
-                  value = "" />
+          <label>Price:
+            <input type="text"
+            [formControl]="price">
+          </label>
         </p>
-      </fieldset>
-    </form>
+        <p>
+          <label>Amount of items:
+              <input type="text"
+              [formControl]="amount">
+            </label>
+          </p>
+          <button (click)="click()">Add</button>
+    
+
+    <div *ngIf="submitted" class="results">
+      <strong>Item:</strong>
+      <span>{{ name.value }}</span>
+
+      <strong>Description:</strong>
+      <span>{{ description.value }}</span>
+
+      <strong>Price:</strong>
+      <span>{{ price.value }}</span>
+
+      <strong>Amount of items:</strong>
+      <span>{{ amount.value }}</span>
+    </div>
+  </fieldset>
   </body>
 </html>

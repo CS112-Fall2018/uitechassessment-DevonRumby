@@ -4,10 +4,11 @@
  * 1- GET /list : API returns the whole cart list in json format
  * 2- POST /item/add : API that receives a new cart item as a json request and adds it to the current cart list
  */
-
+var CORS = require('cors');
 const express = require('express');
 const app = express(); // creates an express application
 app.use(express.json()); // this will make the app parse json body sent in the POST request
+app.use(CORS());
 
 const cartList = [
     { id: 1, name: "Laptop", description: "512 MB ram, webcam, microphone, keyboard", price: 20, amount: 2 },
